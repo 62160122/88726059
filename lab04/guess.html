@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  .btn-default {
+      border-radius: 0;
+   }
+   body {
+  background-color: lightblue;
+}
+  </style>
+</head>
+<body>
+
+<script>
+    rn = Math.floor(Math.random() * 10);
+
+    function guess(n){
+        document.getElementById('showGuessNumber').innerHTML += n+" ";}
+
+    function reguess(n){
+        if(n<rn)
+            document.getElementById('showGuessResult').innerHTML ="น้อยกว่า!";
+        else if(n>rn)
+            document.getElementById('showGuessResult').innerHTML ="มากกว่า!";
+        else
+            document.getElementById('showGuessResult').innerHTML ="ถูกต้อง!";}
+
+    function sOver(){
+        //window.location.reload();
+        rn = Math.floor(Math.random() * 100);
+        document.getElementById('showGuessNumber').innerHTML =" ";
+        document.getElementById('showGuessResult').innerHTML =" ";
+        }
+
+</script>
+
+<center><input type="text" placeholder="Guess Number" id="gn"></center>
+<center><button onclick="guess(gn.value); reguess(gn.value)" type="button" class="btn btn-danger">Guess</button></br></center>
+
+<p id="showGuessNumber"></p><br>
+<p id="showGuessResult"></p>
+
+<center><div class="container"></center>
+<h2>Your want yp play again?</h2>   
+<button onclick="sOver()" type="button" class="btn btn-success">Restart</button>
+
+</div>
+</body>
+</html>
