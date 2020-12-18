@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -50,5 +51,41 @@
 <button onclick="sOver()" type="button" class="btn btn-success">Restart</button>
 
 </div>
+
+<html>
+<head>
+</head>
+<body>
+
+<input type="text" id = "num" placeholder="Guess a number">
+<button onclick="myFunction()">Submit</button>
+<p id ="demo"> </p>
+<script>
+//document.getElementById("ML").innerHTML = Math.floor(Math.random() * 10);
+ML = Math.floor(Math.random() * 10);
+//alert(ML);
+max = "Too big"
+min = "Too small"
+eql = "Right"
+document.write(ML);
+function myFunction(){
+var x = document.getElementById("num").value;
+document.getElementById("demo")
+if(ML < x){
+    var x = document.getElementById("myNumber").value;document.getElementById("Too big").innerHTML = x;
+}
+else if(ML > x){
+    document.getElementById("Too small");
+}
+else{
+    document.getElementById("Right");
+}
+}
+
+</script>
+
+<div id ="hist"></div>
+
+
 </body>
 </html>
