@@ -1,58 +1,68 @@
-
-    <!doctype html>
-    <h2>5.โปรแกรม สุ่มตัวเลข 0-99</h2>
-    <head>
+<!DOCTYPE html>
+<html>
+<head>
     <style>
         table, td {
         border: 1px solid black;
         }
     </style>
-    </head>
+</head>
+<body>
+
+    <h3>5.โปรแกรม สุ่มตัวเลข 0-99 - randCount.html</h3>
+    <input  type="text" id="num">
+    <button onclick="guess(num.value)">สุ่ม</button>
+
+    <table id="sh">
+
+    </table>
+
     <script>
-
-    function guess(){
         
-        var x = document.getElementById("count").value;
-        var a = [x];
-        var b = [x];
-        var c = 0;
-        c++;
-    for (var i = 0; i<x; i++){
-        b[i]=1;
-    }
-    for (var i = 0; i<x; i++){
-        rn = Math.floor(Math.random() * 100);
-        a[i] = rn;   
-        
-    }
-    for (var i = 0; i<x; i++){
-        for(var z = 0; z<x; z++)
-        if(z!=i)
-        if(a[i]==a[z])b[i]++;a[z]=0;}
+    
+        function guess(n){
+            
+            while(sh.hasChildNodes())
+            {sh.removeChild(sh.firstChild);}
 
-    for (var i = 0; i<x; i++){ 
-        var table = document.getElementById("myTable");
-                    var row = table.insertRow(i);
+            var rn = [n];
+            for(o=0; o<Number(n);o++){rn[o] = Number(Math.floor(Math.random() * 100))}
+
+            rn = rn.sort(function(a, b){return b - a});
+
+            var table = document.getElementById("sh");
+
+            var rn2=rn;
+
+            for(x=0; x<Number(n); x++){
+                count=0;
+                for(y=0; y<n; y++){if(rn2[x]==rn[y]){count++;}}
+
+                if(count==1){
+                    var row = table.insertRow(0);
                     var cell1 = row.insertCell(0);
                     var cell2 = row.insertCell(1);
+                    cell1.innerHTML = rn[x];
+                    cell2.innerHTML = count;}
+                else {
+                zum=rn2[x];
+                count2=0;
+                for(z=0; z<x; z++){if(zum==rn2[z]){count2++;}}
+                if(count2==0){
                     
-
-                    cell1.innerHTML = a[i],
-                    cell2.innerHTML = b[i];
-                
+                    var row = table.insertRow(0);
+                    var cell1 = row.insertCell(0);
+                    var cell2 = row.insertCell(1);
+                    cell1.innerHTML = rn[x];
+                    cell2.innerHTML = count;}} 
+            }
+            var row = table.insertRow(0);
+                var cell1 = row.insertCell(0);
+                var cell2 = row.insertCell(1);
+                cell1.innerHTML = "ตัวเลข";
+                cell2.innerHTML = "ถูกสุ่ม(ครั้ง)";
     }
-        
-    }
-
-
-
     </script>
-    <body>
 
-    <input type="number" placeholder="จำนวนครั้ง" id="count" >
-    <button onclick="guess();ct()" >สุ่ม</button>
-    <br>
-    <table id="myTable" cellpadding="2" cellspacing="2" border="1" ></table>
-    <p id="showa"></p>
-    <p id="showb"></p>
-    </body>
+</body>
+</html>
