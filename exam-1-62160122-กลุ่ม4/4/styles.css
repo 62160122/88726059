@@ -1,0 +1,13 @@
+body{
+    background-image: url('im/3.png');
+    background-repeat: no-repeat;
+    background-position: top;
+}
+p{
+    border: 5px solid;
+    background-color: rgb(238, 27, 108);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    padding: 15px 32px;
+    text-align: center;
+}
